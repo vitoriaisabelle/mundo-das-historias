@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,513 +7,380 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mundo de Histórias | Biblioteca Encantada</title>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+<style>
 :root {
-  --dark: #21150f;
-  --wood: #382319;
-  --wood2: #533522;
-  --gold: #e5bd78;
-  --cream: #f5e8d0;
-  --paper: #fff8eb;
-  --ink: #483324;
+  --fundo: #17100e;
+  --madeira: #302019;
+  --madeira2: #493024;
+  --dourado: #d6ad68;
+  --creme: #f4e8d2;
+  --texto: #e8d9c2;
+  --suave: #b9a58c;
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
-
 body {
   margin: 0;
-  background: var(--dark);
-  color: var(--cream);
+  background:
+    radial-gradient(ellipse at top, #493020 0%, #211511 48%, #120d0b 100%);
+  color: var(--texto);
   font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
 }
 
 header {
-  min-height: 82px;
-  padding: 16px 6%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  background: #1b100c;
-  border-bottom: 1px solid #9c7044;
+  text-align: center;
+  padding: 30px 18px 22px;
+  border-bottom: 1px solid #705033;
+  background: rgba(20,12,9,.65);
 }
 
 .logo {
   font-family: 'Cinzel', serif;
-  font-size: 23px;
-  color: var(--gold);
-  letter-spacing: 1px;
+  color: var(--dourado);
+  font-size: clamp(25px, 5vw, 39px);
+  letter-spacing: 2px;
+  margin: 0;
 }
 
-.logo small {
-  display: block;
-  font-family: 'Nunito', sans-serif;
-  color: #d5b995;
-  font-size: 10px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-nav {
-  display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
-}
-
-nav a {
-  color: #f5e8d0;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-nav a:hover { color: var(--gold); }
-
-.hero {
-  min-height: 490px;
-  padding: 75px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse at 50% 65%, #a16a32 0%, transparent 45%),
-    linear-gradient(180deg, #21150f 0%, #42291b 55%, #21150f 100%);
-}
-
-.hero::before,
-.hero::after {
-  content: "✦";
-  position: absolute;
-  color: #f4d18d;
-  font-size: 25px;
-  opacity: .7;
-}
-
-.hero::before {
-  top: 20%;
-  left: 14%;
-}
-
-.hero::after {
-  right: 16%;
-  bottom: 23%;
-}
-
-.hero .eyebrow {
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  font-size: 11px;
-}
-
-.hero h1 {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(34px, 6vw, 60px);
-  line-height: 1.2;
-  margin: 18px 0;
-  max-width: 800px;
-  text-shadow: 0 4px 20px #000;
-}
-
-.hero p {
-  max-width: 560px;
-  color: #e5d1b4;
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-.search {
-  width: min(490px, 92%);
-  display: flex;
-  margin-top: 25px;
-  border: 1px solid #b68a50;
-  border-radius: 30px;
-  overflow: hidden;
-  background: #fff9ed;
-}
-
-.search input {
-  flex: 1;
-  min-width: 0;
-  border: none;
-  outline: none;
-  padding: 15px 20px;
-  background: transparent;
-  color: #382319;
-  font-size: 14px;
-}
-
-.search button {
-  border: 0;
-  background: #a8753c;
-  color: white;
-  padding: 0 23px;
-  cursor: pointer;
+.subtitle {
+  color: #c8b69d;
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin-top: 7px;
 }
 
 main {
-  background:
-    radial-gradient(ellipse at top, #563821 0%, transparent 65%),
-    #281a12;
+  max-width: 1100px;
+  margin: auto;
+  padding: 25px 18px 55px;
 }
 
-.intro {
+.hero {
   text-align: center;
-  padding: 45px 20px 20px;
+  padding: 45px 15px 35px;
 }
 
-.intro h2,
-.section-title {
-  font-family: 'Cinzel', serif;
-  color: var(--gold);
+.hero .ornament {
+  color: var(--dourado);
   font-size: 27px;
-  font-weight: 500;
 }
 
-.intro p {
-  color: #d5b995;
-  font-size: 14px;
-}
-
-.shelf {
-  margin: 20px 5% 55px;
-  padding: 23px 22px 28px;
-  background:
-    linear-gradient(90deg, #29180f, #533522 12%, #754c2c 50%, #42291a 90%, #20140e);
-  border: 8px solid #27160e;
-  border-bottom: 15px solid #170e09;
-  box-shadow:
-    inset 0 5px 10px #c28b4b44,
-    0 14px 22px #0008;
-  border-radius: 5px;
-  position: relative;
-}
-
-.shelf::before {
-  content: "";
-  position: absolute;
-  bottom: -15px;
-  left: -8px;
-  right: -8px;
-  height: 13px;
-  background: linear-gradient(#9b673b, #3c2415);
-  box-shadow: 0 7px 12px #0008;
-}
-
-.shelf-books {
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  gap: 7px;
-  min-height: 175px;
-  flex-wrap: wrap;
-}
-
-.decor-book {
-  width: 38px;
-  height: 135px;
-  border-radius: 4px 4px 1px 1px;
-  border: 2px solid #d5ad72aa;
-  box-shadow: inset 5px 0 7px #0005, 3px 0 5px #0007;
-  position: relative;
-}
-
-.decor-book::after {
-  content: "✦";
-  position: absolute;
-  top: 45%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  color: #f3d6a1;
-}
-
-.decor-book:nth-child(1) { background: #6d3429; height: 145px; }
-.decor-book:nth-child(2) { background: #314d3b; height: 165px; }
-.decor-book:nth-child(3) { background: #a16c32; height: 125px; }
-.decor-book:nth-child(4) { background: #3b4163; height: 155px; }
-.decor-book:nth-child(5) { background: #733e50; height: 145px; }
-.decor-book:nth-child(6) { background: #45634d; height: 170px; }
-.decor-book:nth-child(7) { background: #8a5630; height: 130px; }
-.decor-book:nth-child(8) { background: #393044; height: 155px; }
-.decor-book:nth-child(9) { background: #754b2c; height: 140px; }
-
-.shelf-label {
-  text-align: center;
-  color: #e7c28c;
+.hero h2 {
   font-family: 'Cinzel', serif;
-  font-size: 12px;
-  letter-spacing: 3px;
-  margin-top: 10px;
+  color: var(--creme);
+  font-size: clamp(25px, 5vw, 40px);
+  margin: 13px 0;
 }
 
-.library {
-  padding: 20px 6% 70px;
+.hero p {
+  color: #c5b49e;
+  max-width: 620px;
+  margin: auto;
+  line-height: 1.8;
 }
 
-.section-heading {
-  text-align: center;
-  margin-bottom: 30px;
+.search-area {
+  max-width: 570px;
+  margin: 20px auto 25px;
 }
 
-.section-heading h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 30px;
-  color: var(--gold);
-  font-weight: 500;
-  margin-bottom: 8px;
+.search-area input {
+  width: 100%;
+  padding: 15px 18px;
+  border: 1px solid #87633d;
+  border-radius: 30px;
+  background: #211713;
+  color: white;
+  outline: none;
+  font-family: inherit;
+  font-size: 15px;
 }
 
-.section-heading p {
-  color: #cdb493;
-  font-size: 14px;
+.search-area input:focus {
+  border-color: var(--dourado);
 }
 
 .filters {
   display: flex;
   justify-content: center;
-  gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 35px;
+  gap: 9px;
+  margin: 20px 0 30px;
 }
 
 .filters button {
-  background: transparent;
-  border: 1px solid #a47b4e;
+  background: #39251b;
+  color: #e8d6bc;
+  border: 1px solid #745239;
   border-radius: 25px;
-  color: #f4dfc0;
-  padding: 9px 19px;
+  padding: 9px 16px;
   cursor: pointer;
-  font-family: 'Nunito', sans-serif;
+  font-family: inherit;
+  transition: .2s;
 }
 
-.filters button.active,
-.filters button:hover {
-  background: #a8753c;
-  color: white;
+.filters button:hover,
+.filters button.active {
+  background: #b1844c;
+  color: #21140d;
+  border-color: #d6ad68;
 }
 
-.grid {
+.section-title {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  color: var(--dourado);
+  font-size: 23px;
+  margin: 30px 0 25px;
+}
+
+.shelf {
+  background: linear-gradient(90deg, #382219, #65432b, #382219);
+  padding: 18px 14px 22px;
+  border: 2px solid #755034;
+  border-radius: 9px;
+  box-shadow: 0 12px 20px #0007;
+}
+
+.book-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
-  gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  gap: 18px;
 }
 
-.card {
-  background: #f6e9d4;
-  color: var(--ink);
-  border-radius: 7px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px #0005;
-  transition: .25s;
+.book-card {
+  background: #211713;
+  border: 1px solid #765338;
+  border-radius: 9px;
+  padding: 13px;
+  text-align: center;
+  transition: transform .2s, border-color .2s;
 }
 
-.card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 16px 30px #0008;
+.book-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--dourado);
 }
 
 .cover {
-  min-height: 255px;
+  min-height: 190px;
+  border-radius: 6px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 5px solid #b68a50;
+  padding: 16px;
+  box-shadow: inset 0 0 25px #0005;
+  border: 3px solid #ffffff20;
 }
 
-.cover::before {
-  content: "";
-  position: absolute;
-  inset: 12px;
-  border: 1px solid #f6d99c99;
-  pointer-events: none;
+.cover .emoji {
+  font-size: 57px;
+  margin-bottom: 15px;
 }
 
-.cover .symbol {
-  font-size: 78px;
-  filter: drop-shadow(0 7px 10px #0008);
-}
-
-.cover .cover-name {
-  position: absolute;
-  bottom: 25px;
-  left: 15px;
-  right: 15px;
-  text-align: center;
-  color: #fff0d1;
+.cover h3 {
   font-family: 'Cinzel', serif;
-  font-size: 20px;
-  text-shadow: 0 3px 7px #000;
-}
-
-.cover.lion { background: radial-gradient(circle at 50% 40%, #e5a54c, #744022 70%, #29160f); }
-.cover.bear { background: radial-gradient(circle at 50% 40%, #b3a16d, #46523c 65%, #1b261d); }
-.cover.dragon { background: radial-gradient(circle at 50% 40%, #8098a8, #31475e 65%, #172231); }
-.cover.panda { background: radial-gradient(circle at 50% 40%, #b99c65, #66523c 65%, #251b16); }
-.cover.lorax { background: radial-gradient(circle at 50% 40%, #e3a35a, #a34c36 65%, #4b2920); }
-
-.card-content { padding: 19px; }
-
-.card-content h3 {
-  font-family: 'Cinzel', serif;
+  color: white;
   font-size: 17px;
-  margin: 0 0 8px;
-  color: #553724;
+  text-shadow: 0 2px 5px #0009;
+  margin: 0;
 }
 
-.card-content p {
+.cover p {
+  color: #fff;
+  font-size: 11px;
+  margin-bottom: 0;
+}
+
+.lion { background: linear-gradient(145deg, #a65b22, #472313); }
+.bear { background: linear-gradient(145deg, #73934b, #263b28); }
+.dragon { background: linear-gradient(145deg, #456f83, #182d47); }
+.panda { background: linear-gradient(145deg, #b58b4c, #54351e); }
+.lorax { background: linear-gradient(145deg, #e28a35, #873c22); }
+
+.book-card .description {
+  color: #c5b49e;
   font-size: 13px;
-  line-height: 1.6;
-  color: #80654c;
-  min-height: 60px;
+  line-height: 1.5;
+  min-height: 58px;
 }
 
-.tag {
-  font-size: 10px;
-  color: #936638;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.read {
-  display: block;
-  width: 100%;
-  margin-top: 12px;
-  padding: 11px;
-  background: #543622;
-  border: 0;
-  color: #fff1d6;
-  border-radius: 4px;
+.read-button {
+  background: linear-gradient(135deg, #d8b574, #a9773e);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 18px;
+  color: #24160e;
+  font-weight: 800;
   cursor: pointer;
-  font-family: 'Nunito', sans-serif;
+  font-family: inherit;
 }
 
-.read:hover { background: #85572f; }
+.read-button:hover { filter: brightness(1.12); }
 
 .empty {
   display: none;
   text-align: center;
-  padding: 30px;
-  color: #e6cba4;
+  padding: 25px;
+  color: var(--suave);
 }
 
 .reader {
   display: none;
-  background: #f5e8d0;
-  color: #493324;
-  padding: 35px;
-  margin: 0 auto 65px;
-  width: min(850px, 90%);
-  border-radius: 8px;
-  box-shadow: 0 10px 35px #0008;
+  margin-top: 35px;
+  background: #211713;
+  border: 1px solid #8a6542;
+  border-radius: 12px;
+  padding: clamp(18px, 4vw, 35px);
+  box-shadow: 0 15px 40px #0006;
 }
 
-.reader h2 {
+.reader-top {
+  text-align: center;
+  border-bottom: 1px solid #684a32;
+  padding-bottom: 20px;
+}
+
+.reader-top .small-title {
+  color: var(--dourado);
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.reader-top h2 {
   font-family: 'Cinzel', serif;
-  color: #68452b;
+  color: var(--creme);
+  font-size: clamp(24px, 5vw, 34px);
+  margin: 12px 0;
 }
 
-.reader p {
-  line-height: 1.9;
-  white-space: pre-line;
-}
-
-.reader button {
-  background: #68452b;
-  color: white;
-  border: 0;
-  border-radius: 20px;
-  padding: 10px 18px;
-  cursor: pointer;
+.reader-top p {
+  color: var(--suave);
+  margin: 0;
 }
 
 .chapter-list {
-  margin-top: 25px;
-  display: grid;
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 22px 0;
 }
 
 .chapter-list button {
-  width: 100%;
-  text-align: left;
-  background: #ead7b8;
-  color: #543622;
-  border: 1px solid #c7a77b;
-  border-radius: 5px;
-  padding: 14px;
+  background: #38251b;
+  color: #dfc9a9;
+  border: 1px solid #765338;
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-family: inherit;
+  cursor: pointer;
 }
 
-#chapterText {
-  margin-top: 25px;
+.chapter-list button.active {
+  background: var(--dourado);
+  color: #21140d;
+}
+
+.chapter-content {
+  max-width: 760px;
+  margin: auto;
+  min-height: 260px;
+}
+
+.chapter-content h3 {
+  font-family: 'Cinzel', serif;
+  color: var(--dourado);
+  font-size: 23px;
+}
+
+.chapter-content p {
+  color: #e5d7c3;
   font-size: 16px;
+  line-height: 2;
+  text-align: justify;
+  white-space: pre-line;
+}
+
+.progress {
+  text-align: center;
+  color: var(--suave);
+  font-size: 13px;
+  margin: 20px 0;
+}
+
+.reader-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.reader-controls button {
+  padding: 11px 19px;
+  border-radius: 25px;
+  border: 1px solid #a17a4b;
+  background: #39251b;
+  color: var(--creme);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.reader-controls button:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+.reader-controls .back {
+  background: transparent;
 }
 
 .about {
   text-align: center;
-  padding: 60px 20px;
-  background: #352218;
-  border-top: 1px solid #8c633e;
+  max-width: 650px;
+  margin: 65px auto 25px;
+  padding: 25px;
+  border-top: 1px solid #65452e;
 }
 
 .about h2 {
+  color: var(--dourado);
   font-family: 'Cinzel', serif;
-  color: var(--gold);
 }
 
 .about p {
-  max-width: 620px;
-  margin: auto;
+  color: #c4b39d;
   line-height: 1.8;
-  color: #e0c9a7;
-}
-
-.cat {
-  font-size: 52px;
-  margin: 15px 0;
-  filter: drop-shadow(0 5px 8px #0008);
 }
 
 footer {
-  background: #170e09;
   text-align: center;
-  padding: 28px 15px;
-  color: #c9ae8a;
+  padding: 23px 15px;
+  background: #120c09;
+  color: #9f8a72;
   font-size: 12px;
-  line-height: 2;
 }
 
-footer strong {
-  font-family: 'Cinzel', serif;
-  color: var(--gold);
-  font-size: 16px;
-}
+.hidden { display: none !important; }
 
-@media(max-width: 600px) {
-  header { justify-content: center; text-align: center; }
-  nav { justify-content: center; gap: 17px; }
-  .hero { min-height: 420px; }
-  .shelf { margin-left: 4%; margin-right: 4%; padding: 15px 8px 22px; }
-  .decor-book { width: 27px; }
-  .library { padding-left: 5%; padding-right: 5%; }
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
-  .cover { min-height: 190px; }
-  .cover .symbol { font-size: 55px; }
-  .cover .cover-name { font-size: 14px; }
-  .card-content { padding: 12px; }
-  .card-content h3 { font-size: 14px; }
-  .card-content p { font-size: 12px; min-height: 75px; }
-  .reader { padding: 22px; }
+@media (max-width: 500px) {
+  main { padding-left: 12px; padding-right: 12px; }
+  .shelf { padding: 12px; }
+  .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .cover { min-height: 155px; }
+  .cover .emoji { font-size: 43px; }
+  .cover h3 { font-size: 14px; }
+  .book-card { padding: 9px; }
+  .book-card .description { font-size: 12px; }
+  .read-button { padding: 9px 12px; font-size: 12px; }
 }
 </style>
 </head>
@@ -520,299 +388,463 @@ footer strong {
 <body>
 
 <header>
-  <div class="logo">
-    Mundo de Histórias
-    <small>Biblioteca encantada</small>
-  </div>
-
-  <nav>
-    <a href="#inicio">Início</a>
-    <a href="#biblioteca">Biblioteca</a>
-    <a href="#sobre">Sobre</a>
-  </nav>
+  <h1 class="logo">Mundo de Histórias</h1>
+  <div class="subtitle">✦ UMA BIBLIOTECA DE ENCANTOS ✦</div>
 </header>
 
-<section class="hero" id="inicio">
-  <div class="eyebrow">✦ Um mundo de imaginação ✦</div>
-  <h1>Entre páginas e sonhos...</h1>
-  <p>
-    Abra um livro, encontre uma aventura e deixe sua imaginação
-    descobrir lugares onde tudo pode acontecer.
-  </p>
-
-  <div class="search">
-    <input id="searchInput" placeholder="Procure uma história...">
-    <button onclick="searchBooks()">Buscar</button>
-  </div>
-</section>
-
 <main>
+  <section class="hero">
+    <div class="ornament">✧ 📖 ✧</div>
+    <h2>Entre páginas e sonhos...</h2>
+    <p>
+      Abra um livro, encontre personagens inesquecíveis e reviva
+      histórias que continuam encantando gerações.
+    </p>
+  </section>
 
-<div class="intro">
-  <h2>Bem-vindo à biblioteca</h2>
-  <p>Há sempre uma nova história esperando por você.</p>
-</div>
-
-<div class="shelf">
-  <div class="shelf-books">
-    <div class="decor-book"></div>
-    <div class="decor-book"></div>
-    <div class="decor-book"></div>
-    <div class="decor-book"></div>
-    <div class="decor-book"></div>
-    <div class="decor-book"></div>
-    <div class="decor-book"></div>
-    <div class="decor-book"></div>
-    <div class="decor-book"></div>
-  </div>
-  <div class="shelf-label">✦ Conhecimento é magia ✦</div>
-</div>
-
-<section class="library" id="biblioteca">
-  <div class="section-heading">
-    <h2>Estante de histórias</h2>
-    <p>Escolha seu próximo mundo para explorar.</p>
+  <div class="search-area">
+    <input id="searchInput" type="search" placeholder="🔎 Procurar uma história...">
   </div>
 
   <div class="filters">
-    <button class="active" onclick="filterBooks('Todas',this)">Todas</button>
-    <button onclick="filterBooks('Aventura',this)">Aventura</button>
-    <button onclick="filterBooks('Fantasia',this)">Fantasia</button>
-    <button onclick="filterBooks('Amizade',this)">Amizade</button>
-    <button onclick="filterBooks('Natureza',this)">Natureza</button>
+    <button class="active" onclick="filterBooks('todos', this)">Todas</button>
+    <button onclick="filterBooks('aventura', this)">Aventura</button>
+    <button onclick="filterBooks('amizade', this)">Amizade</button>
+    <button onclick="filterBooks('fantasia', this)">Fantasia</button>
   </div>
 
-  <div class="grid" id="bookGrid">
+  <h2 class="section-title">✦ Nossa Estante Encantada ✦</h2>
 
-    <article class="card" data-category="Aventura">
-      <div class="cover lion">
-        <span class="symbol">🦁</span>
-        <span class="cover-name">O Rei Leão</span>
-      </div>
-      <div class="card-content">
-        <span class="tag">Aventura</span>
-        <h3>O Rei Leão</h3>
-        <p>Uma jornada pela savana, com temas de família, coragem e responsabilidade.</p>
-        <button class="read" onclick="openBook('lion')">Conhecer história</button>
-      </div>
-    </article>
+  <section class="shelf">
+    <div class="book-grid" id="bookGrid">
 
-    <article class="card" data-category="Amizade">
-      <div class="cover bear">
-        <span class="symbol">🐻</span>
-        <span class="cover-name">Irmão Urso</span>
-      </div>
-      <div class="card-content">
-        <span class="tag">Amizade</span>
-        <h3>Irmão Urso</h3>
-        <p>Uma aventura sobre empatia, transformação e os laços entre diferentes seres.</p>
-        <button class="read" onclick="openBook('bear')">Conhecer história</button>
-      </div>
-    </article>
+      <article class="book-card" data-category="aventura amizade">
+        <div class="cover lion">
+          <div class="emoji">🦁</div>
+          <h3>O Rei Leão</h3>
+          <p>Uma jornada de coragem</p>
+        </div>
+        <p class="description">Uma história sobre família, amadurecimento e o verdadeiro significado de assumir responsabilidades.</p>
+        <button class="read-button" onclick="openBook('lion')">Conhecer história</button>
+      </article>
 
-    <article class="card" data-category="Fantasia">
-      <div class="cover dragon">
-        <span class="symbol">🐉</span>
-        <span class="cover-name">Como Treinar o Seu Dragão</span>
-      </div>
-      <div class="card-content">
-        <span class="tag">Fantasia</span>
-        <h3>Como Treinar o Seu Dragão</h3>
-        <p>Uma aventura sobre confiança, amizade e a coragem de enxergar além das aparências.</p>
-        <button class="read" onclick="openBook('dragon')">Conhecer história</button>
-      </div>
-    </article>
+      <article class="book-card" data-category="aventura amizade">
+        <div class="cover bear">
+          <div class="emoji">🐻</div>
+          <h3>Irmão Urso</h3>
+          <p>Uma amizade inesperada</p>
+        </div>
+        <p class="description">Uma jornada que ensina a enxergar o mundo através dos olhos de outra pessoa.</p>
+        <button class="read-button" onclick="openBook('bear')">Conhecer história</button>
+      </article>
 
-    <article class="card" data-category="Aventura">
-      <div class="cover panda">
-        <span class="symbol">🐼</span>
-        <span class="cover-name">Kung Fu Panda</span>
-      </div>
-      <div class="card-content">
-        <span class="tag">Aventura</span>
-        <h3>Kung Fu Panda</h3>
-        <p>Uma aventura divertida sobre autoconfiança, esforço e descobrir o próprio potencial.</p>
-        <button class="read" onclick="openBook('panda')">Conhecer história</button>
-      </div>
-    </article>
+      <article class="book-card" data-category="aventura fantasia">
+        <div class="cover dragon">
+          <div class="emoji">🐉</div>
+          <h3>Como Treinar o Seu Dragão</h3>
+          <p>Além do que os olhos veem</p>
+        </div>
+        <p class="description">Um jovem viking descobre que coragem também significa questionar aquilo que todos acreditam.</p>
+        <button class="read-button" onclick="openBook('dragon')">Conhecer história</button>
+      </article>
 
-    <article class="card" data-category="Natureza">
-      <div class="cover lorax">
-        <span class="symbol">🌳</span>
-        <span class="cover-name">O Lorax</span>
-      </div>
-      <div class="card-content">
-        <span class="tag">Natureza</span>
-        <h3>O Lorax</h3>
-        <p>Uma história que convida a refletir sobre a natureza e o cuidado com o planeta.</p>
-        <button class="read" onclick="openBook('lorax')">Conhecer história</button>
-      </div>
-    </article>
+      <article class="book-card" data-category="aventura amizade">
+        <div class="cover panda">
+          <div class="emoji">🐼</div>
+          <h3>Kung Fu Panda</h3>
+          <p>O herói improvável</p>
+        </div>
+        <p class="description">Uma aventura sobre confiança, dedicação e descobrir o próprio valor.</p>
+        <button class="read-button" onclick="openBook('panda')">Conhecer história</button>
+      </article>
 
-  </div>
+      <article class="book-card" data-category="fantasia aventura">
+        <div class="cover lorax">
+          <div class="emoji">🌳</div>
+          <h3>O Lorax</h3>
+          <p>Em busca da natureza</p>
+        </div>
+        <p class="description">Uma história sobre escolhas, cuidado com o planeta e a esperança de recomeçar.</p>
+        <button class="read-button" onclick="openBook('lorax')">Conhecer história</button>
+      </article>
 
-  <div class="empty" id="empty">Nenhuma história encontrada. Tente outra busca. ✨</div>
-</section>
+    </div>
+    <p class="empty" id="empty">Nenhuma história encontrada. Tente outra busca. ✨</p>
+  </section>
 
-<div class="reader" id="reader">
-  <button onclick="closeBook()">← Voltar à biblioteca</button>
-  <h2 id="readerTitle"></h2>
-  <p id="readerDescription"></p>
-  <h3>Conteúdo</h3>
-  <div class="chapter-list" id="chapterList"></div>
-  <div id="chapterText"></div>
-</div>
+  <section class="reader" id="reader">
+    <div class="reader-top">
+      <div class="small-title">✦ MUNDO DE HISTÓRIAS ✦</div>
+      <h2 id="readerTitle"></h2>
+      <p id="readerDescription"></p>
+    </div>
 
-<section class="about" id="sobre">
-  <div class="cat">🐈</div>
-  <h2>Um cantinho feito para sonhar</h2>
-  <p>
-    O Mundo de Histórias nasceu para reunir aventuras, personagens,
-    lembranças e descobertas em um só lugar.
-    Prepare seu coração, escolha um livro e aproveite a leitura!
-  </p>
-</section>
+    <div class="chapter-list" id="chapterList"></div>
 
+    <div class="chapter-content">
+      <h3 id="chapterTitle"></h3>
+      <p id="chapterText"></p>
+    </div>
+
+    <div class="progress" id="progress"></div>
+
+    <div class="reader-controls">
+      <button id="previousButton" onclick="previousChapter()">← Anterior</button>
+      <button id="nextButton" onclick="nextChapter()">Próximo capítulo →</button>
+      <button class="back" onclick="closeBook()">Voltar à estante</button>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>Sobre nossa biblioteca</h2>
+    <p>
+      O Mundo de Histórias é um cantinho criado para guardar lembranças,
+      aventuras e personagens que marcaram nossa imaginação.
+      Aqui, cada leitura é um convite para sonhar um pouquinho mais.
+    </p>
+    <p>🐈‍⬛ ✨ Que nunca nos faltem histórias para contar!</p>
+  </section>
 </main>
 
 <footer>
-  <strong>📖 Mundo de Histórias</strong><br>
-  Uma biblioteca para quem nunca deixa de imaginar.<br>
-  Feito com carinho. ✦
+  Mundo de Histórias · Uma biblioteca feita com carinho
+  <br>
+  <span>Conteúdo de leitura e comentários sobre obras audiovisuais.
+  Não é um site oficial dos filmes.</span>
 </footer>
 
 <script>
 const books = {
   lion: {
     title: "O Rei Leão",
-    description: "Uma apresentação e um espaço para organizar leituras sobre o filme.",
+    description: "Uma história de amadurecimento, família, perda e coragem.",
     chapters: [
       {
-        title: "Apresentação",
-        text: "Nesta seção você poderá reunir informações sobre o filme, seus personagens, seus temas e um resumo original da história. Os capítulos poderão ser acrescentados conforme a biblioteca crescer."
+        title: "Capítulo 1 — As Terras do Reino",
+        text: `Nas vastas Terras do Reino, a vida seguia seu próprio ritmo. Os animais conviviam em um equilíbrio que dependia do cuidado e da responsabilidade de cada geração. Naquele lugar, Mufasa era o rei e procurava ensinar ao filho, Simba, que ser líder não significava apenas ter poder, mas também proteger aqueles que dependiam dele.
+
+Simba era curioso, cheio de energia e desejava crescer logo. Para ele, tornar-se rei parecia uma grande aventura. Mufasa, porém, sabia que o futuro traria responsabilidades que o filho ainda não conseguia compreender completamente.
+
+Enquanto isso, Scar observava tudo com ressentimento. A posição que desejava parecia cada vez mais distante, e sua inveja começava a influenciar suas escolhas.`
+      },
+      {
+        title: "Capítulo 2 — O Peso das Escolhas",
+        text: `A curiosidade de Simba e sua vontade de provar que já era corajoso o colocavam diante de situações maiores do que sua experiência. Ele ainda precisava aprender que coragem não é fazer qualquer coisa sem pensar, mas reconhecer os perigos e compreender as consequências das próprias decisões.
+
+Uma tragédia muda completamente o caminho do jovem leão. Dominado pela culpa e sem conseguir enxergar toda a verdade, Simba acredita que precisa desaparecer. Scar aproveita aquele momento de fragilidade para tomar o controle das Terras do Reino.
+
+A partir daí, o lugar que antes era cheio de vida começa a sofrer. A liderança baseada no cuidado dá lugar a decisões egoístas, e os habitantes sentem as consequências desse desequilíbrio.`
+      },
+      {
+        title: "Capítulo 3 — Longe de Casa",
+        text: `Distante de sua antiga vida, Simba encontra um ambiente completamente diferente. Timão e Pumba apresentam a ele uma maneira despreocupada de viver, na qual os problemas parecem ficar para trás. A amizade dos dois oferece acolhimento quando ele mais precisa.
+
+Com o passar do tempo, Simba cresce e aprende a aproveitar a tranquilidade daquele novo lar. Mas deixar o passado de lado não significa que tudo tenha sido resolvido. Algumas lembranças continuam presentes, mesmo quando tentamos não pensar nelas.
+
+O reencontro com Nala faz Simba perceber que sua antiga casa não está bem. A situação das Terras do Reino desperta nele uma pergunta difícil: será que fugir é realmente a única maneira de continuar vivendo?`
+      },
+      {
+        title: "Capítulo 4 — O Retorno do Rei",
+        text: `Ao compreender melhor sua história, Simba começa a enxergar que não pode passar a vida inteira sendo definido pelo medo e pela culpa. As lembranças de seu pai e os ensinamentos recebidos ajudam o jovem leão a reconhecer a responsabilidade que ainda existe diante dele.
+
+Voltar não seria simples. Seria necessário enfrentar aquilo que havia deixado para trás e descobrir se estava preparado para assumir seu lugar. Com a ajuda de seus amigos e a coragem que desenvolveu ao longo da jornada, Simba decide encarar o passado.
+
+A história termina lembrando que crescer envolve reconhecer erros, aprender com eles e escolher agir de maneira diferente. O ciclo da vida continua, e uma nova geração passa a representar o futuro das Terras do Reino.`
       }
     ]
   },
 
   bear: {
     title: "Irmão Urso",
-    description: "Uma história sobre empatia, família e amizade.",
+    description: "Uma aventura sobre empatia, transformação e laços de amizade.",
     chapters: [
       {
-        title: "Apresentação",
-        text: "Aqui ficará a apresentação da obra, com informações sobre os personagens e os principais temas da aventura. Você poderá organizar seus resumos e comentários em capítulos."
+        title: "Capítulo 1 — Três Irmãos",
+        text: `Kenai vive com seus irmãos, Sitka e Denahi, em uma comunidade que valoriza suas tradições. Cada um possui uma personalidade diferente, e Kenai ainda está tentando compreender o significado das responsabilidades que acompanham seu crescimento.
+
+Para ele, algumas lições parecem difíceis de aceitar. Kenai acredita que já sabe o suficiente sobre o mundo, mas ainda não percebe que suas atitudes podem afetar profundamente outras vidas.
+
+Depois de um acontecimento marcante, sua maneira de enxergar os ursos e a própria existência é colocada em questão. Uma transformação inesperada muda seu cotidiano e o obriga a conhecer o mundo de uma perspectiva completamente nova.`
+      },
+      {
+        title: "Capítulo 2 — Olhos de Outro Ser",
+        text: `Agora em uma forma que nunca imaginou experimentar, Kenai precisa lidar com a sensação de não pertencer ao lugar onde antes se sentia em casa. A floresta, que parecia conhecida, passa a apresentar novos desafios.
+
+Durante essa jornada, ele encontra Koda, um filhote de urso falante, curioso e cheio de energia. Koda não conhece a história de Kenai e passa a enxergar nele um companheiro para seguir viagem.
+
+A convivência dos dois começa de maneira complicada. Kenai está preocupado com seus próprios objetivos, enquanto Koda deseja companhia e acredita que aquela viagem pode ser uma grande aventura. Aos poucos, os caminhos dos dois se aproximam.`
+      },
+      {
+        title: "Capítulo 3 — Uma Amizade no Caminho",
+        text: `Viajar ao lado de Koda faz Kenai perceber detalhes que antes ignorava. O filhote fala sobre sua vida, seus sentimentos e a maneira como enxerga os outros animais. A floresta deixa de ser apenas um cenário e passa a representar uma comunidade cheia de histórias.
+
+Entre descobertas, dificuldades e momentos divertidos, os dois constroem uma amizade. Kenai começa a compreender que conhecer alguém de verdade exige mais do que observar sua aparência ou repetir aquilo que outras pessoas dizem.
+
+Essa mudança de perspectiva é uma das partes mais importantes da jornada. O que inicialmente parecia um obstáculo se transforma em uma oportunidade de aprender sobre cuidado, responsabilidade e respeito.`
+      },
+      {
+        title: "Capítulo 4 — O Significado de Ser Irmão",
+        text: `Conforme a verdade sobre o passado aparece, Kenai precisa enfrentar sentimentos difíceis. A jornada deixa de ser apenas uma busca pessoal e passa a envolver o bem-estar de Koda.
+
+Ele percebe que suas decisões não dizem respeito somente a si mesmo. A amizade que nasceu durante a viagem criou um vínculo que merece ser levado a sério.
+
+A história mostra que família também pode ser construída por meio de carinho, confiança e escolhas. Kenai aprende que olhar o mundo de outra maneira pode transformar completamente aquilo que acreditava saber.
+
+No final, a ideia de ser irmão ganha um significado muito maior: estar presente, proteger e compreender alguém, mesmo quando isso exige abrir mão do próprio orgulho.`
       }
     ]
   },
 
   dragon: {
     title: "Como Treinar o Seu Dragão",
-    description: "Uma aventura sobre amizade e coragem.",
+    description: "Uma história de amizade, descobertas e coragem para questionar tradições.",
     chapters: [
       {
-        title: "Apresentação",
-        text: "Este espaço será dedicado à aventura, aos personagens e às ideias marcantes do filme. Novos capítulos e conteúdos poderão ser adicionados à biblioteca."
+        title: "Capítulo 1 — O Jovem Viking",
+        text: `Na ilha de Berk, os vikings cresceram aprendendo a enfrentar dragões. A convivência entre os habitantes era marcada por uma antiga rivalidade, e a habilidade de lutar contra essas criaturas era vista como uma demonstração de força.
+
+Soluço, filho do chefe Stoico, não se encaixava muito bem nas expectativas da aldeia. Inteligente e inventivo, ele tentava provar seu valor, mas suas tentativas frequentemente terminavam em confusão.
+
+A pressão para se tornar um guerreiro fazia Soluço acreditar que precisava mudar quem era. Porém, sua curiosidade e sua maneira diferente de pensar acabariam conduzindo-o a uma descoberta que colocaria em dúvida tudo aquilo que a comunidade acreditava.`
+      },
+      {
+        title: "Capítulo 2 — O Encontro com Banguela",
+        text: `Em uma de suas experiências, Soluço encontra um dragão Fúria da Noite ferido. Em vez de enxergar apenas uma criatura perigosa, o jovem começa a perceber que aquele animal também sente medo, dor e desconfiança.
+
+O primeiro contato entre os dois não acontece de maneira simples. A confiança precisa ser construída aos poucos, com paciência e observação. Soluço descobre que o dragão é muito mais complexo do que as histórias contadas na aldeia faziam parecer.
+
+O nome Banguela passa a representar uma amizade inesperada. Ao conhecer melhor o animal, Soluço começa a perceber que a verdadeira ameaça talvez não esteja exatamente onde todos sempre acreditaram.`
+      },
+      {
+        title: "Capítulo 3 — Dois Mundos Diferentes",
+        text: `A amizade entre Soluço e Banguela cresce enquanto o jovem aprende a compreender o comportamento dos dragões. Cada descoberta apresenta uma nova possibilidade e mostra que o conhecimento pode substituir o medo.
+
+Ao mesmo tempo, Soluço precisa lidar com as expectativas de seu pai e com a convivência na aldeia. Astrid, que também está envolvida no treinamento dos jovens vikings, começa a perceber que existe algo diferente na maneira como ele age.
+
+O segredo de Soluço se torna cada vez mais difícil de esconder. Ele precisa decidir se continuará tentando agradar a todos ou se terá coragem de mostrar aquilo que descobriu, mesmo correndo o risco de ser incompreendido.`
+      },
+      {
+        title: "Capítulo 4 — Uma Nova Maneira de Ser Corajoso",
+        text: `Quando a verdade sobre a relação entre Soluço e Banguela vem à tona, o conflito deixa de ser apenas uma questão individual. A aldeia inteira precisa enfrentar suas próprias certezas.
+
+Soluço procura mostrar que dragões não precisam ser tratados como inimigos por natureza. Sua experiência com Banguela revela que a convivência pode ser construída por meio de respeito, observação e confiança.
+
+A jornada também transforma a relação entre pai e filho. Stoico precisa reconsiderar aquilo que acreditava, enquanto Soluço aprende que amadurecer não significa simplesmente obedecer às expectativas dos outros.
+
+A história celebra uma coragem diferente: aquela que permite questionar tradições injustas e defender uma amizade mesmo quando o mundo inteiro parece estar contra ela.`
       }
     ]
   },
 
   panda: {
     title: "Kung Fu Panda",
-    description: "Uma aventura cheia de humor e descobertas.",
+    description: "Uma aventura divertida sobre autoconfiança e descoberta pessoal.",
     chapters: [
       {
-        title: "Apresentação",
-        text: "Nesta parte você poderá reunir informações sobre a história, seus personagens e suas mensagens. A biblioteca poderá receber novos capítulos de resumo e análise."
+        title: "Capítulo 1 — Um Sonho Muito Grande",
+        text: `Po é um panda apaixonado por kung fu. Mesmo trabalhando no restaurante de sua família, ele passa boa parte do tempo imaginando como seria viver ao lado dos grandes guerreiros que admira.
+
+Seu entusiasmo é enorme, mas sua realidade parece muito distante daquele sonho. Po não possui a aparência nem a experiência dos lutadores que considera exemplos de perfeição.
+
+Quando uma oportunidade inesperada o coloca diante de um destino que jamais imaginou, ele precisa deixar de ser apenas um admirador e começar a descobrir o que realmente pode fazer.
+
+A mudança não é recebida com facilidade por todos. Para muitos, a escolha parece absurda. Para Po, entretanto, surge a chance de descobrir se existe algo especial dentro dele.`
+      },
+      {
+        title: "Capítulo 2 — O Palácio de Jade",
+        text: `Ao chegar ao ambiente de treinamento, Po encontra os Cinco Furiosos e o Mestre Shifu. O lugar que ele tanto admirava agora é também um espaço cheio de desafios.
+
+A convivência com os guerreiros não é simples. Po precisa lidar com dificuldades físicas, comentários desanimadores e a sensação de que talvez não pertença àquele grupo.
+
+Shifu, por sua vez, enfrenta a responsabilidade de ensinar alguém que não corresponde aos métodos tradicionais. A relação entre mestre e aluno começa com dúvidas e frustrações, mas também abre espaço para uma descoberta importante: nem todos aprendem da mesma maneira.
+
+Aos poucos, o treinamento deixa de ser apenas uma tentativa de imitar os outros e passa a envolver o reconhecimento das próprias capacidades.`
+      },
+      {
+        title: "Capítulo 3 — A Força de Ser Diferente",
+        text: `Po começa a encontrar maneiras próprias de aprender. Aquilo que parecia ser uma desvantagem pode se transformar em uma característica importante quando recebe a orientação adequada.
+
+O treinamento passa a ter outro significado. Em vez de tentar apagar sua personalidade, Po começa a compreender que sua maneira de agir também pode fazer parte de sua força.
+
+Enquanto isso, a ameaça de Tai Lung coloca todos diante de uma situação que exige preparação e coragem. O desafio não é apenas demonstrar habilidade, mas descobrir se Po realmente acredita em si mesmo.
+
+A história mostra que talento e confiança não aparecem necessariamente da maneira que esperamos. Às vezes, é preciso abandonar a comparação com os outros para encontrar o próprio caminho.`
+      },
+      {
+        title: "Capítulo 4 — O Guerreiro Dragão",
+        text: `O momento de enfrentar o grande desafio chega, e Po precisa colocar em prática aquilo que aprendeu. Ele já não é apenas o panda que sonhava em lutar kung fu: agora conhece melhor seus limites e suas possibilidades.
+
+Shifu também compreende que ensinar não significa transformar todos em cópias de um mesmo modelo. Um bom mestre precisa reconhecer as características de cada aluno e ajudá-lo a desenvolver seu potencial.
+
+A jornada de Po é uma celebração da autoconfiança. Ele aprende que não precisa deixar de ser quem é para alcançar algo importante.
+
+A mensagem que fica é simples e poderosa: o valor de alguém não depende de parecer perfeito. Acreditar em si mesmo pode ser o primeiro passo para descobrir aquilo que se é capaz de realizar.`
       }
     ]
   },
 
   lorax: {
     title: "O Lorax",
-    description: "Uma história sobre natureza e responsabilidade.",
+    description: "Uma história sobre natureza, escolhas e a importância de cuidar do planeta.",
     chapters: [
       {
-        title: "Apresentação",
-        text: "Aqui ficará o espaço para apresentar o filme, seus personagens e suas reflexões sobre o meio ambiente. Você poderá acrescentar novos capítulos e comentários."
+        title: "Capítulo 1 — Uma Cidade Diferente",
+        text: `Em Thneedville, tudo parece organizado e colorido. As construções são planejadas, os objetos são produzidos artificialmente e a natureza verdadeira não faz parte do cotidiano da maioria dos moradores.
+
+Ted vive nessa cidade e começa a perceber que existe algo diferente em seu mundo. Seu interesse por árvores e pelo ambiente natural cresce quando ele conhece o desejo de Audrey de ver uma árvore de verdade.
+
+A curiosidade de Ted o leva a procurar respostas fora dos limites da cidade. Ele descobre que a ausência de árvores não aconteceu por acaso e que existe uma história por trás daquele cenário artificial.
+
+O que parecia uma simples busca passa a representar uma investigação sobre as escolhas que transformaram o lugar onde todos vivem.`
+      },
+      {
+        title: "Capítulo 2 — A História do Uma-Vez-Ildo",
+        text: `Ao procurar respostas, Ted encontra o Uma-Vez-Ildo, uma figura que conhece o passado da região. Por meio de suas lembranças, o jovem começa a entender como aquele ambiente já foi muito diferente.
+
+A história revela a existência de uma floresta cheia de vida, com árvores especiais e animais que dependiam daquele ecossistema. O desejo de criar um produto de grande sucesso acabou colocando a natureza em segundo plano.
+
+O Lorax, guardião daquele ambiente, representa a preocupação com os seres vivos e com as consequências das decisões humanas.
+
+As lembranças do passado mostram que uma mudança aparentemente pequena pode provocar efeitos muito maiores quando ninguém pensa no futuro.`
+      },
+      {
+        title: "Capítulo 3 — O Preço das Escolhas",
+        text: `A busca por crescimento e reconhecimento fez com que os recursos naturais fossem tratados como se fossem infinitos. Aos poucos, a floresta perdeu seu espaço, e os animais tiveram de procurar outro lugar para viver.
+
+O Uma-Vez-Ildo precisa lidar com as consequências de suas escolhas. O sucesso que desejava não trouxe a felicidade que imaginava, e a perda da natureza revelou o verdadeiro custo de suas decisões.
+
+Ted começa a perceber que conhecer a história não é suficiente. Se deseja transformar a realidade, precisa compartilhar o que descobriu e incentivar outras pessoas a se envolverem.
+
+A aventura mostra que a responsabilidade ambiental não é apenas um assunto distante. Ela está ligada às escolhas cotidianas e ao cuidado com aquilo que pertence a todos.`
+      },
+      {
+        title: "Capítulo 4 — Uma Nova Esperança",
+        text: `Ao compreender o passado, Ted percebe que ainda existe a possibilidade de fazer algo diferente. Sua busca por uma árvore verdadeira passa a representar uma esperança muito maior: a possibilidade de recuperar aquilo que foi perdido.
+
+A mudança exige participação. Não basta desejar um ambiente melhor; é necessário agir, compartilhar conhecimento e cuidar do que começa a crescer.
+
+A história termina com uma reflexão sobre responsabilidade e esperança. Mesmo depois de grandes perdas, uma atitude pode abrir caminho para uma transformação.
+
+O Lorax nos lembra que a natureza não é apenas um cenário bonito. Ela abriga vidas, sustenta comunidades e precisa ser respeitada para que as próximas gerações também possam conhecê-la.`
       }
     ]
   }
 };
 
+let currentBook = null;
+let currentChapter = 0;
+
 function openBook(id) {
-  const book = books[id];
+  currentBook = books[id];
+  currentChapter = 0;
 
-  document.getElementById("readerTitle").textContent = book.title;
-  document.getElementById("readerDescription").textContent = book.description;
+  document.getElementById("readerTitle").textContent = currentBook.title;
+  document.getElementById("readerDescription").textContent = currentBook.description;
 
+  const reader = document.getElementById("reader");
+  reader.style.display = "block";
+
+  renderChapterButtons();
+  showChapter(0);
+
+  reader.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function renderChapterButtons() {
   const list = document.getElementById("chapterList");
   list.innerHTML = "";
 
-  book.chapters.forEach((chapter) => {
+  currentBook.chapters.forEach((chapter, index) => {
     const button = document.createElement("button");
-    button.textContent = chapter.title;
-
-    button.onclick = () => {
-      const area = document.getElementById("chapterText");
-      area.innerHTML = "";
-
-      const heading = document.createElement("h3");
-      heading.textContent = chapter.title;
-
-      const paragraph = document.createElement("p");
-      paragraph.textContent = chapter.text;
-
-      area.appendChild(heading);
-      area.appendChild(paragraph);
-    };
-
+    button.textContent = "Capítulo " + (index + 1);
+    button.onclick = () => showChapter(index);
+    button.id = "chapterButton" + index;
     list.appendChild(button);
   });
+}
 
-  document.getElementById("chapterText").innerHTML = "";
-  document.getElementById("reader").style.display = "block";
-  document.getElementById("reader").scrollIntoView({behavior:"smooth"});
+function showChapter(index) {
+  if (!currentBook) return;
+  if (index < 0 || index >= currentBook.chapters.length) return;
+
+  currentChapter = index;
+  const chapter = currentBook.chapters[index];
+
+  document.getElementById("chapterTitle").textContent = chapter.title;
+  document.getElementById("chapterText").textContent = chapter.text;
+  document.getElementById("progress").textContent =
+    "Capítulo " + (index + 1) + " de " + currentBook.chapters.length;
+
+  currentBook.chapters.forEach((item, i) => {
+    const button = document.getElementById("chapterButton" + i);
+    if (button) button.classList.toggle("active", i === index);
+  });
+
+  document.getElementById("previousButton").disabled = index === 0;
+  document.getElementById("nextButton").disabled =
+    index === currentBook.chapters.length - 1;
+}
+
+function previousChapter() {
+  showChapter(currentChapter - 1);
+}
+
+function nextChapter() {
+  showChapter(currentChapter + 1);
 }
 
 function closeBook() {
   document.getElementById("reader").style.display = "none";
+  currentBook = null;
+  document.querySelector(".section-title").scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
 }
 
 function filterBooks(category, button) {
-  document.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll(".filters button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
   button.classList.add("active");
 
-  document.querySelectorAll(".card").forEach(card => {
-    card.style.display =
-      category === "Todas" || card.dataset.category === category
-      ? "" : "none";
+  document.querySelectorAll(".book-card").forEach(card => {
+    const categories = card.dataset.category.split(" ");
+    const visible = category === "todos" || categories.includes(category);
+    card.classList.toggle("hidden", !visible);
   });
 
   updateEmpty();
 }
 
 function searchBooks() {
-  const term = document.getElementById("searchInput").value.toLowerCase();
+  const term = document.getElementById("searchInput").value
+    .toLowerCase()
+    .trim();
 
-  document.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
-  document.querySelectorAll(".card").forEach(card => {
-    card.style.display = card.textContent.toLowerCase().includes(term)
-      ? "" : "none";
+  document.querySelectorAll(".book-card").forEach(card => {
+    const text = card.textContent.toLowerCase();
+    card.classList.toggle("hidden", !text.includes(term));
+  });
+
+  document.querySelectorAll(".filters button").forEach(btn => {
+    btn.classList.remove("active");
   });
 
   updateEmpty();
 }
 
 function updateEmpty() {
-  const visible = [...document.querySelectorAll(".card")]
-    .some(card => card.style.display !== "none");
+  const visibleCards = [...document.querySelectorAll(".book-card")]
+    .filter(card => !card.classList.contains("hidden"));
 
-  document.getElementById("empty").style.display = visible ? "none" : "block";
+  document.getElementById("empty").style.display =
+    visibleCards.length === 0 ? "block" : "none";
 }
 
-document.getElementById("searchInput").addEventListener("keydown", event => {
-  if (event.key === "Enter") searchBooks();
-});
+document.getElementById("searchInput")
+  .addEventListener("input", searchBooks);
 </script>
 
 </body>
