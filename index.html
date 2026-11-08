@@ -1,233 +1,818 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mundo de Histórias</title>
+<title>Mundo de Histórias | Biblioteca Encantada</title>
+
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;
- font-family:Georgia,serif;
- background:#f7f0e5;
- color:#493729;
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+
+:root {
+  --dark: #21150f;
+  --wood: #382319;
+  --wood2: #533522;
+  --gold: #e5bd78;
+  --cream: #f5e8d0;
+  --paper: #fff8eb;
+  --ink: #483324;
 }
-header{
- background:linear-gradient(135deg,#493729,#806044);
- color:#fff5df;
- text-align:center;
- padding:45px 18px 35px;
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--dark);
+  color: var(--cream);
+  font-family: 'Nunito', sans-serif;
 }
-header .symbol{font-size:38px}
-header h1{font-size:34px;margin:10px 0}
-header p{font-style:italic;color:#ead8bd}
-nav{
- display:flex;justify-content:center;gap:18px;
- flex-wrap:wrap;padding:15px;background:#e9dcc8;
+
+header {
+  min-height: 82px;
+  padding: 16px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  background: #1b100c;
+  border-bottom: 1px solid #9c7044;
 }
-nav a{color:#60452f;text-decoration:none;font-size:14px}
-main{max-width:1000px;margin:auto;padding:25px 18px}
-.intro{text-align:center;padding:15px 0 25px}
-.intro h2{font-size:27px}
-.intro p{line-height:1.7;color:#79644f}
-.search{
- display:block;width:100%;max-width:500px;margin:20px auto;
- padding:14px;border:1px solid #cbb89e;border-radius:25px;
- background:#fffaf2;font-size:15px;
+
+.logo {
+  font-family: 'Cinzel', serif;
+  font-size: 23px;
+  color: var(--gold);
+  letter-spacing: 1px;
 }
-.categories{
- display:flex;justify-content:center;gap:9px;
- flex-wrap:wrap;margin:20px 0 30px;
+
+.logo small {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  color: #d5b995;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-align: center;
 }
-.categories button{
- border:1px solid #b99b78;background:#fffaf2;
- color:#634a34;border-radius:22px;padding:10px 17px;
- cursor:pointer;font-family:inherit;
+
+nav {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
 }
-.categories button.active,.categories button:hover{
- background:#674b34;color:white;
+
+nav a {
+  color: #f5e8d0;
+  text-decoration: none;
+  font-size: 14px;
 }
-.shelf-title{text-align:center;margin:30px 0 20px}
-.books{
- display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
- gap:22px;
+
+nav a:hover { color: var(--gold); }
+
+.hero {
+  min-height: 490px;
+  padding: 75px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 65%, #a16a32 0%, transparent 45%),
+    linear-gradient(180deg, #21150f 0%, #42291b 55%, #21150f 100%);
 }
-.book{
- background:#fffaf2;padding:12px;border-radius:12px;
- box-shadow:0 4px 12px #61462b18;text-align:center;
- cursor:pointer;transition:.2s;
+
+.hero::before,
+.hero::after {
+  content: "✦";
+  position: absolute;
+  color: #f4d18d;
+  font-size: 25px;
+  opacity: .7;
 }
-.book:hover{transform:translateY(-5px)}
-.cover{
- height:165px;border-radius:7px;
- display:flex;align-items:center;justify-content:center;
- flex-direction:column;color:#fff8e8;padding:10px;
- box-shadow:inset 0 0 0 4px #ffffff25;
+
+.hero::before {
+  top: 20%;
+  left: 14%;
 }
-.cover span{font-size:42px}
-.cover strong{font-size:17px;margin-top:12px}
-.book h3{font-size:16px;margin:12px 0 5px}
-.book small{color:#8b745d}
-.read{
- background:#684b34;color:white;border:0;
- border-radius:20px;padding:9px 18px;
- margin:10px 0 3px;cursor:pointer;
+
+.hero::after {
+  right: 16%;
+  bottom: 23%;
 }
-footer{
- margin-top:45px;background:#493729;color:#f5e7d1;
- text-align:center;padding:30px 15px;line-height:1.8;
+
+.hero .eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 11px;
 }
-#reader{
- display:none;position:fixed;inset:0;background:#0009;
- align-items:center;justify-content:center;padding:15px;
+
+.hero h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(34px, 6vw, 60px);
+  line-height: 1.2;
+  margin: 18px 0;
+  max-width: 800px;
+  text-shadow: 0 4px 20px #000;
 }
-.reader-box{
- background:#fffaf2;border-radius:15px;padding:25px;
- max-width:600px;width:100%;max-height:85vh;overflow:auto;
- line-height:1.8;
+
+.hero p {
+  max-width: 560px;
+  color: #e5d1b4;
+  font-size: 16px;
+  line-height: 1.8;
 }
-.close{
- float:right;border:0;background:#684b34;color:white;
- padding:8px 13px;border-radius:15px;cursor:pointer;
+
+.search {
+  width: min(490px, 92%);
+  display: flex;
+  margin-top: 25px;
+  border: 1px solid #b68a50;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #fff9ed;
 }
-.reader-box h2{color:#684b34}
-@media(max-width:400px){
- header h1{font-size:28px}
- .books{grid-template-columns:repeat(2,minmax(0,1fr))}
- .cover{height:145px}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 15px 20px;
+  background: transparent;
+  color: #382319;
+  font-size: 14px;
+}
+
+.search button {
+  border: 0;
+  background: #a8753c;
+  color: white;
+  padding: 0 23px;
+  cursor: pointer;
+}
+
+main {
+  background:
+    radial-gradient(ellipse at top, #563821 0%, transparent 65%),
+    #281a12;
+}
+
+.intro {
+  text-align: center;
+  padding: 45px 20px 20px;
+}
+
+.intro h2,
+.section-title {
+  font-family: 'Cinzel', serif;
+  color: var(--gold);
+  font-size: 27px;
+  font-weight: 500;
+}
+
+.intro p {
+  color: #d5b995;
+  font-size: 14px;
+}
+
+.shelf {
+  margin: 20px 5% 55px;
+  padding: 23px 22px 28px;
+  background:
+    linear-gradient(90deg, #29180f, #533522 12%, #754c2c 50%, #42291a 90%, #20140e);
+  border: 8px solid #27160e;
+  border-bottom: 15px solid #170e09;
+  box-shadow:
+    inset 0 5px 10px #c28b4b44,
+    0 14px 22px #0008;
+  border-radius: 5px;
+  position: relative;
+}
+
+.shelf::before {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: -8px;
+  right: -8px;
+  height: 13px;
+  background: linear-gradient(#9b673b, #3c2415);
+  box-shadow: 0 7px 12px #0008;
+}
+
+.shelf-books {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 7px;
+  min-height: 175px;
+  flex-wrap: wrap;
+}
+
+.decor-book {
+  width: 38px;
+  height: 135px;
+  border-radius: 4px 4px 1px 1px;
+  border: 2px solid #d5ad72aa;
+  box-shadow: inset 5px 0 7px #0005, 3px 0 5px #0007;
+  position: relative;
+}
+
+.decor-book::after {
+  content: "✦";
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #f3d6a1;
+}
+
+.decor-book:nth-child(1) { background: #6d3429; height: 145px; }
+.decor-book:nth-child(2) { background: #314d3b; height: 165px; }
+.decor-book:nth-child(3) { background: #a16c32; height: 125px; }
+.decor-book:nth-child(4) { background: #3b4163; height: 155px; }
+.decor-book:nth-child(5) { background: #733e50; height: 145px; }
+.decor-book:nth-child(6) { background: #45634d; height: 170px; }
+.decor-book:nth-child(7) { background: #8a5630; height: 130px; }
+.decor-book:nth-child(8) { background: #393044; height: 155px; }
+.decor-book:nth-child(9) { background: #754b2c; height: 140px; }
+
+.shelf-label {
+  text-align: center;
+  color: #e7c28c;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-top: 10px;
+}
+
+.library {
+  padding: 20px 6% 70px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-heading h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 30px;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.section-heading p {
+  color: #cdb493;
+  font-size: 14px;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+.filters button {
+  background: transparent;
+  border: 1px solid #a47b4e;
+  border-radius: 25px;
+  color: #f4dfc0;
+  padding: 9px 19px;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+}
+
+.filters button.active,
+.filters button:hover {
+  background: #a8753c;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+  gap: 26px;
+}
+
+.card {
+  background: #f6e9d4;
+  color: var(--ink);
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px #0005;
+  transition: .25s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 16px 30px #0008;
+}
+
+.cover {
+  min-height: 255px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 5px solid #b68a50;
+}
+
+.cover::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid #f6d99c99;
+  pointer-events: none;
+}
+
+.cover .symbol {
+  font-size: 78px;
+  filter: drop-shadow(0 7px 10px #0008);
+}
+
+.cover .cover-name {
+  position: absolute;
+  bottom: 25px;
+  left: 15px;
+  right: 15px;
+  text-align: center;
+  color: #fff0d1;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  text-shadow: 0 3px 7px #000;
+}
+
+.cover.lion { background: radial-gradient(circle at 50% 40%, #e5a54c, #744022 70%, #29160f); }
+.cover.bear { background: radial-gradient(circle at 50% 40%, #b3a16d, #46523c 65%, #1b261d); }
+.cover.dragon { background: radial-gradient(circle at 50% 40%, #8098a8, #31475e 65%, #172231); }
+.cover.panda { background: radial-gradient(circle at 50% 40%, #b99c65, #66523c 65%, #251b16); }
+.cover.lorax { background: radial-gradient(circle at 50% 40%, #e3a35a, #a34c36 65%, #4b2920); }
+
+.card-content { padding: 19px; }
+
+.card-content h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 17px;
+  margin: 0 0 8px;
+  color: #553724;
+}
+
+.card-content p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #80654c;
+  min-height: 60px;
+}
+
+.tag {
+  font-size: 10px;
+  color: #936638;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.read {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 11px;
+  background: #543622;
+  border: 0;
+  color: #fff1d6;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+}
+
+.read:hover { background: #85572f; }
+
+.empty {
+  display: none;
+  text-align: center;
+  padding: 30px;
+  color: #e6cba4;
+}
+
+.reader {
+  display: none;
+  background: #f5e8d0;
+  color: #493324;
+  padding: 35px;
+  margin: 0 auto 65px;
+  width: min(850px, 90%);
+  border-radius: 8px;
+  box-shadow: 0 10px 35px #0008;
+}
+
+.reader h2 {
+  font-family: 'Cinzel', serif;
+  color: #68452b;
+}
+
+.reader p {
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+.reader button {
+  background: #68452b;
+  color: white;
+  border: 0;
+  border-radius: 20px;
+  padding: 10px 18px;
+  cursor: pointer;
+}
+
+.chapter-list {
+  margin-top: 25px;
+  display: grid;
+  gap: 10px;
+}
+
+.chapter-list button {
+  width: 100%;
+  text-align: left;
+  background: #ead7b8;
+  color: #543622;
+  border: 1px solid #c7a77b;
+  border-radius: 5px;
+  padding: 14px;
+}
+
+#chapterText {
+  margin-top: 25px;
+  font-size: 16px;
+}
+
+.about {
+  text-align: center;
+  padding: 60px 20px;
+  background: #352218;
+  border-top: 1px solid #8c633e;
+}
+
+.about h2 {
+  font-family: 'Cinzel', serif;
+  color: var(--gold);
+}
+
+.about p {
+  max-width: 620px;
+  margin: auto;
+  line-height: 1.8;
+  color: #e0c9a7;
+}
+
+.cat {
+  font-size: 52px;
+  margin: 15px 0;
+  filter: drop-shadow(0 5px 8px #0008);
+}
+
+footer {
+  background: #170e09;
+  text-align: center;
+  padding: 28px 15px;
+  color: #c9ae8a;
+  font-size: 12px;
+  line-height: 2;
+}
+
+footer strong {
+  font-family: 'Cinzel', serif;
+  color: var(--gold);
+  font-size: 16px;
+}
+
+@media(max-width: 600px) {
+  header { justify-content: center; text-align: center; }
+  nav { justify-content: center; gap: 17px; }
+  .hero { min-height: 420px; }
+  .shelf { margin-left: 4%; margin-right: 4%; padding: 15px 8px 22px; }
+  .decor-book { width: 27px; }
+  .library { padding-left: 5%; padding-right: 5%; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+  .cover { min-height: 190px; }
+  .cover .symbol { font-size: 55px; }
+  .cover .cover-name { font-size: 14px; }
+  .card-content { padding: 12px; }
+  .card-content h3 { font-size: 14px; }
+  .card-content p { font-size: 12px; min-height: 75px; }
+  .reader { padding: 22px; }
 }
 </style>
 </head>
+
 <body>
 
 <header>
- <div class="symbol">📖 ✨</div>
- <h1>Mundo de Histórias</h1>
- <p>Abra um livro e descubra um mundo novo.</p>
+  <div class="logo">
+    Mundo de Histórias
+    <small>Biblioteca encantada</small>
+  </div>
+
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#biblioteca">Biblioteca</a>
+    <a href="#sobre">Sobre</a>
+  </nav>
 </header>
 
-<nav>
- <a href="#inicio">Início</a>
- <a href="#biblioteca">Biblioteca</a>
- <a href="#sobre">Sobre nós</a>
-</nav>
+<section class="hero" id="inicio">
+  <div class="eyebrow">✦ Um mundo de imaginação ✦</div>
+  <h1>Entre páginas e sonhos...</h1>
+  <p>
+    Abra um livro, encontre uma aventura e deixe sua imaginação
+    descobrir lugares onde tudo pode acontecer.
+  </p>
 
-<main id="inicio">
- <section class="intro">
-  <h2>Era uma vez...</h2>
-  <p>Um lugar onde a imaginação não tem limites.
-  Entre, escolha uma história e deixe a magia acontecer!</p>
- </section>
+  <div class="search">
+    <input id="searchInput" placeholder="Procure uma história...">
+    <button onclick="searchBooks()">Buscar</button>
+  </div>
+</section>
 
- <input class="search" id="search"
- placeholder="🔎 Procurar uma história..."
- oninput="filterBooks()">
+<main>
 
- <div class="categories">
-  <button class="active" onclick="category('Todas',this)">Todas</button>
-  <button onclick="category('Aventura',this)">Aventuras</button>
-  <button onclick="category('Fantasia',this)">Fantasia</button>
-  <button onclick="category('Amizade',this)">Amizade</button>
- </div>
-
- <section id="biblioteca">
-  <h2 class="shelf-title">📚 Nossa biblioteca</h2>
-  <div class="books" id="books"></div>
- </section>
-</main>
-
-<footer id="sobre">
- <h2>🌙 Mundo de Histórias</h2>
- <p>Um cantinho especial para pequenos e grandes leitores.</p>
- <small>Feito com carinho para quem ama histórias. ❤️</small>
-</footer>
-
-<div id="reader" onclick="if(event.target.id==='reader')closeReader()">
- <div class="reader-box">
-  <button class="close" onclick="closeReader()">Fechar ✕</button>
-  <div id="story"></div>
- </div>
+<div class="intro">
+  <h2>Bem-vindo à biblioteca</h2>
+  <p>Há sempre uma nova história esperando por você.</p>
 </div>
 
-<script>
-const stories=[
-{
-title:"A menina e o vaga-lume",
-cat:"Fantasia",emoji:"✨",color:"#89705e",
-text:`<p>Em uma pequena vila cercada por árvores, vivia uma menina chamada Clara. Ela adorava observar o céu e procurar estrelas entre as folhas.</p>
-<p>Certa noite, encontrou um pequeno vaga-lume brilhando perto de uma flor. Ele parecia perdido.</p>
-<p>Clara aproximou as mãos devagar e disse: "Não tenha medo, pequenino. Vou ajudar você."</p>
-<p>Ela caminhou pelo jardim até encontrar outros vaga-lumes iluminando uma árvore. O pequeno inseto voou feliz em direção aos companheiros.</p>
-<p>Clara sorriu. Naquela noite, descobriu que até a menor luz podia tornar a escuridão mais bonita.</p>`
-},
-{
-title:"O mapa misterioso",
-cat:"Aventura",emoji:"🗺️",color:"#a66d45",
-text:`<p>Pedro encontrou um papel antigo escondido dentro de um livro no sótão de sua avó.</p>
-<p>Era um mapa desenhado à mão, com árvores, rios e um grande X no meio da floresta.</p>
-<p>Curioso, chamou sua amiga Júlia. Juntos, prepararam uma mochila e seguiram as pistas.</p>
-<p>Depois de atravessar uma pequena ponte e contornar uma pedra enorme, encontraram uma caixa de madeira.</p>
-<p>Dentro dela havia fotografias antigas da família e uma carta da avó contando sobre suas aventuras de infância.</p>
-<p>O maior tesouro não era ouro: eram as lembranças que esperavam para ser descobertas.</p>`
-},
-{
-title:"O amigo das estrelas",
-cat:"Amizade",emoji:"🌟",color:"#66758b",
-text:`<p>Tomás gostava de observar as estrelas da janela de seu quarto. Todas as noites, imaginava que elas eram pequenas lanternas no céu.</p>
-<p>Uma noite, conheceu Lucas, um menino que havia acabado de se mudar para a casa ao lado.</p>
-<p>Os dois começaram a observar o céu juntos. Cada um inventava nomes para as constelações.</p>
-<p>Com o passar dos dias, descobriram que tinham muito em comum e que até as noites mais silenciosas ficavam divertidas quando estavam juntos.</p>
-<p>Assim nasceu uma amizade que brilhava tanto quanto as estrelas.</p>`
-},
-{
-title:"A floresta encantada",
-cat:"Fantasia",emoji:"🌳",color:"#657b60",
-text:`<p>Depois de uma chuva forte, Sofia percebeu uma pequena trilha que nunca havia visto antes.</p>
-<p>As árvores pareciam formar um corredor e pequenas flores brilhavam pelo caminho.</p>
-<p>Ao chegar a uma clareira, encontrou uma fonte cercada por borboletas coloridas.</p>
-<p>Um passarinho pousou perto dela e começou a cantar. Sofia ficou ali por alguns minutos, admirando aquele lugar escondido.</p>
-<p>Quando voltou para casa, guardou o segredo daquele jardim em seu coração, esperando o dia de visitá-lo novamente.</p>`
-}
-];
-
-let selected="Todas";
-
-function render(){
- const query=document.getElementById("search").value.toLowerCase();
- const filtered=stories.filter(s=>
- (selected==="Todas"||s.cat===selected)&&
- s.title.toLowerCase().includes(query)
- );
- document.getElementById("books").innerHTML=filtered.length?
- filtered.map((s,i)=>`
- <article class="book" onclick="openStory(${stories.indexOf(s)})">
-  <div class="cover" style="background:${s.color}">
-   <span>${s.emoji}</span><strong>${s.title}</strong>
+<div class="shelf">
+  <div class="shelf-books">
+    <div class="decor-book"></div>
+    <div class="decor-book"></div>
+    <div class="decor-book"></div>
+    <div class="decor-book"></div>
+    <div class="decor-book"></div>
+    <div class="decor-book"></div>
+    <div class="decor-book"></div>
+    <div class="decor-book"></div>
+    <div class="decor-book"></div>
   </div>
-  <h3>${s.title}</h3>
-  <small>${s.cat}</small><br>
-  <button class="read">Ler história</button>
- </article>`).join(""):"<p>Nenhuma história encontrada.</p>";
+  <div class="shelf-label">✦ Conhecimento é magia ✦</div>
+</div>
+
+<section class="library" id="biblioteca">
+  <div class="section-heading">
+    <h2>Estante de histórias</h2>
+    <p>Escolha seu próximo mundo para explorar.</p>
+  </div>
+
+  <div class="filters">
+    <button class="active" onclick="filterBooks('Todas',this)">Todas</button>
+    <button onclick="filterBooks('Aventura',this)">Aventura</button>
+    <button onclick="filterBooks('Fantasia',this)">Fantasia</button>
+    <button onclick="filterBooks('Amizade',this)">Amizade</button>
+    <button onclick="filterBooks('Natureza',this)">Natureza</button>
+  </div>
+
+  <div class="grid" id="bookGrid">
+
+    <article class="card" data-category="Aventura">
+      <div class="cover lion">
+        <span class="symbol">🦁</span>
+        <span class="cover-name">O Rei Leão</span>
+      </div>
+      <div class="card-content">
+        <span class="tag">Aventura</span>
+        <h3>O Rei Leão</h3>
+        <p>Uma jornada pela savana, com temas de família, coragem e responsabilidade.</p>
+        <button class="read" onclick="openBook('lion')">Conhecer história</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Amizade">
+      <div class="cover bear">
+        <span class="symbol">🐻</span>
+        <span class="cover-name">Irmão Urso</span>
+      </div>
+      <div class="card-content">
+        <span class="tag">Amizade</span>
+        <h3>Irmão Urso</h3>
+        <p>Uma aventura sobre empatia, transformação e os laços entre diferentes seres.</p>
+        <button class="read" onclick="openBook('bear')">Conhecer história</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Fantasia">
+      <div class="cover dragon">
+        <span class="symbol">🐉</span>
+        <span class="cover-name">Como Treinar o Seu Dragão</span>
+      </div>
+      <div class="card-content">
+        <span class="tag">Fantasia</span>
+        <h3>Como Treinar o Seu Dragão</h3>
+        <p>Uma aventura sobre confiança, amizade e a coragem de enxergar além das aparências.</p>
+        <button class="read" onclick="openBook('dragon')">Conhecer história</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Aventura">
+      <div class="cover panda">
+        <span class="symbol">🐼</span>
+        <span class="cover-name">Kung Fu Panda</span>
+      </div>
+      <div class="card-content">
+        <span class="tag">Aventura</span>
+        <h3>Kung Fu Panda</h3>
+        <p>Uma aventura divertida sobre autoconfiança, esforço e descobrir o próprio potencial.</p>
+        <button class="read" onclick="openBook('panda')">Conhecer história</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Natureza">
+      <div class="cover lorax">
+        <span class="symbol">🌳</span>
+        <span class="cover-name">O Lorax</span>
+      </div>
+      <div class="card-content">
+        <span class="tag">Natureza</span>
+        <h3>O Lorax</h3>
+        <p>Uma história que convida a refletir sobre a natureza e o cuidado com o planeta.</p>
+        <button class="read" onclick="openBook('lorax')">Conhecer história</button>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="empty" id="empty">Nenhuma história encontrada. Tente outra busca. ✨</div>
+</section>
+
+<div class="reader" id="reader">
+  <button onclick="closeBook()">← Voltar à biblioteca</button>
+  <h2 id="readerTitle"></h2>
+  <p id="readerDescription"></p>
+  <h3>Conteúdo</h3>
+  <div class="chapter-list" id="chapterList"></div>
+  <div id="chapterText"></div>
+</div>
+
+<section class="about" id="sobre">
+  <div class="cat">🐈</div>
+  <h2>Um cantinho feito para sonhar</h2>
+  <p>
+    O Mundo de Histórias nasceu para reunir aventuras, personagens,
+    lembranças e descobertas em um só lugar.
+    Prepare seu coração, escolha um livro e aproveite a leitura!
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <strong>📖 Mundo de Histórias</strong><br>
+  Uma biblioteca para quem nunca deixa de imaginar.<br>
+  Feito com carinho. ✦
+</footer>
+
+<script>
+const books = {
+  lion: {
+    title: "O Rei Leão",
+    description: "Uma apresentação e um espaço para organizar leituras sobre o filme.",
+    chapters: [
+      {
+        title: "Apresentação",
+        text: "Nesta seção você poderá reunir informações sobre o filme, seus personagens, seus temas e um resumo original da história. Os capítulos poderão ser acrescentados conforme a biblioteca crescer."
+      }
+    ]
+  },
+
+  bear: {
+    title: "Irmão Urso",
+    description: "Uma história sobre empatia, família e amizade.",
+    chapters: [
+      {
+        title: "Apresentação",
+        text: "Aqui ficará a apresentação da obra, com informações sobre os personagens e os principais temas da aventura. Você poderá organizar seus resumos e comentários em capítulos."
+      }
+    ]
+  },
+
+  dragon: {
+    title: "Como Treinar o Seu Dragão",
+    description: "Uma aventura sobre amizade e coragem.",
+    chapters: [
+      {
+        title: "Apresentação",
+        text: "Este espaço será dedicado à aventura, aos personagens e às ideias marcantes do filme. Novos capítulos e conteúdos poderão ser adicionados à biblioteca."
+      }
+    ]
+  },
+
+  panda: {
+    title: "Kung Fu Panda",
+    description: "Uma aventura cheia de humor e descobertas.",
+    chapters: [
+      {
+        title: "Apresentação",
+        text: "Nesta parte você poderá reunir informações sobre a história, seus personagens e suas mensagens. A biblioteca poderá receber novos capítulos de resumo e análise."
+      }
+    ]
+  },
+
+  lorax: {
+    title: "O Lorax",
+    description: "Uma história sobre natureza e responsabilidade.",
+    chapters: [
+      {
+        title: "Apresentação",
+        text: "Aqui ficará o espaço para apresentar o filme, seus personagens e suas reflexões sobre o meio ambiente. Você poderá acrescentar novos capítulos e comentários."
+      }
+    ]
+  }
+};
+
+function openBook(id) {
+  const book = books[id];
+
+  document.getElementById("readerTitle").textContent = book.title;
+  document.getElementById("readerDescription").textContent = book.description;
+
+  const list = document.getElementById("chapterList");
+  list.innerHTML = "";
+
+  book.chapters.forEach((chapter) => {
+    const button = document.createElement("button");
+    button.textContent = chapter.title;
+
+    button.onclick = () => {
+      const area = document.getElementById("chapterText");
+      area.innerHTML = "";
+
+      const heading = document.createElement("h3");
+      heading.textContent = chapter.title;
+
+      const paragraph = document.createElement("p");
+      paragraph.textContent = chapter.text;
+
+      area.appendChild(heading);
+      area.appendChild(paragraph);
+    };
+
+    list.appendChild(button);
+  });
+
+  document.getElementById("chapterText").innerHTML = "";
+  document.getElementById("reader").style.display = "block";
+  document.getElementById("reader").scrollIntoView({behavior:"smooth"});
 }
 
-function category(cat,button){
- selected=cat;
- document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
- button.classList.add("active");
- render();
+function closeBook() {
+  document.getElementById("reader").style.display = "none";
 }
-function filterBooks(){render()}
-function openStory(i){
- const s=stories[i];
- document.getElementById("story").innerHTML=
- `<h2>${s.emoji} ${s.title}</h2>${s.text}`;
- document.getElementById("reader").style.display="flex";
+
+function filterBooks(category, button) {
+  document.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
+  button.classList.add("active");
+
+  document.querySelectorAll(".card").forEach(card => {
+    card.style.display =
+      category === "Todas" || card.dataset.category === category
+      ? "" : "none";
+  });
+
+  updateEmpty();
 }
-function closeReader(){
- document.getElementById("reader").style.display="none";
+
+function searchBooks() {
+  const term = document.getElementById("searchInput").value.toLowerCase();
+
+  document.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll(".card").forEach(card => {
+    card.style.display = card.textContent.toLowerCase().includes(term)
+      ? "" : "none";
+  });
+
+  updateEmpty();
 }
-render();
+
+function updateEmpty() {
+  const visible = [...document.querySelectorAll(".card")]
+    .some(card => card.style.display !== "none");
+
+  document.getElementById("empty").style.display = visible ? "none" : "block";
+}
+
+document.getElementById("searchInput").addEventListener("keydown", event => {
+  if (event.key === "Enter") searchBooks();
+});
 </script>
+
 </body>
 </html>
